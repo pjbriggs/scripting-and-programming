@@ -7,3 +7,5 @@ tasks.
 [Markdown cheat sheet](https://github.com/pjbriggs/scripting-and-programming/blob/master/markdown_cheatsheet.md)
 
 [Mercurial crib sheet](https://github.com/pjbriggs/scripting-and-programming/blob/master/mercurial.md)
+
+[Excel hints](https://github.com/pjbriggs/scripting-and-programming/blob/master/excel_hints.md)
