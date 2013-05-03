@@ -8,4 +8,6 @@ tasks.
 
 [Mercurial crib sheet](https://github.com/pjbriggs/scripting-and-programming/blob/master/mercurial.md)
 
+[SQLite crib sheet](https://github.com/pjbriggs/scripting-and-programming/blob/master/sqlite.md)
+
 [Excel hints](https://github.com/pjbriggs/scripting-and-programming/blob/master/excel_hints.md)
