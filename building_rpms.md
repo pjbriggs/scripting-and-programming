@@ -143,6 +143,12 @@ it):
 
  * [smock](http://www.redhat.com/archives/rhl-devel-list/2008-November/msg01229.html)
 
+### Useful links for using mock ###
+
+ * <http://fedoraproject.org/wiki/Projects/Mock>
+ * <http://gr8can8dian.wordpress.com/2011/01/22/building-a-fedora-rpm-with-mock/>
+ * <http://www.openfusion.net/linux/mocking_rpms>
+
 Creating a new RPM from scratch
 -------------------------------
 
@@ -235,3 +241,73 @@ Perl:
 
     perl_vendorarch: architecture-specific location for Perl modules
     perl_vendorlib : general library location for Perl modules
+
+Miscellaneous stuff
+-------------------
+
+ * __To find out whether a package is available from EPEL__
+
+   Use the `bodhi-client` package (install via `yum`) and then do e.g.
+
+   `bodhi bfast`
+
+   which will list the latest updates for that package across all branches i.e.
+   different Fedora and EPEL versions (if applicable).
+
+ * __EPEL5 checksum error__
+
+   When trying to use SRPMs built by Fedora 15 as input to `rpmbuild` for EPEL5,
+   you are likely to get an md5 sum mismatch fatal error. This is because from
+   Fedora 11 onwards the RPMs use SHA256 but EL5 uses MD5). You can get around this
+   by using
+
+   `rpm-build-md5`
+
+   to build the SRPMS specifically for EPEL5. It’s not a problem for EPEL6.
+   (`rpm-build-md5` is in the `fedora-packager` package in yum.)
+
+ * __Making "binary" RPMs__
+
+   Essentially anything that’s just being untarred and installed (e.g. R packages,
+   data files, or pre-built executables etc) can also be RPM-ed. A useful convention
+   is to add `-bin` to the package name in these cases.
+
+ * __Relocatable RPMs__
+
+   Relocatable packages can be installed under a user-defined directory by specifying
+   `rpm`’s `--prefix` option at installation time.
+
+   This is done by including the `Prefix` directive in the spec file, e.g.
+
+   `Prefix:  /usr`
+
+   which indicates that all file paths starting with `/usr` should have this replaced
+   by the path specified by `--prefix`. The drawback with this approach is that `yum`
+   doesn’t support `--prefix` so package management would have to be done manually.
+
+ * __Python packages and setuptools__
+
+   `Setuptools` and its variants support options to build RPMs and spec files
+   automatically:
+
+   `python setup.py bdist_rpm # creates the full RPM`
+
+   or
+
+   `python setup.py bdist_rpm --spec-only`
+
+ * __Making your own RPM repository__
+
+    * Goes into Apache webroot
+    * Run `repobuilder` (check name)
+    * Put the rpms in there
+
+Resources & Links
+-----------------
+
+ * <http://www.rpm.org/>
+ * <http://fedoraproject.org/wiki/How_to_create_an_RPM_package> (includes template SPEC file)
+ * <http://fedoraproject.org/wiki/Packaging/NamingGuidelines> (includes naming conventions
+   for things like Python packages)
+ * Packaging Python: <http://fedoraproject.org/wiki/Packaging:Python>
+ * Info on signing RPMs: <http://pmc.ucsc.edu/~dmk/notes/RPMs/Creating_RPMs.html>
