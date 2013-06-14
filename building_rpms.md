@@ -1,5 +1,5 @@
-Making RPMS: notes
-==================
+Making RPMS using rpmbuild and mock
+===================================
 
 Setting up
 ----------
@@ -174,3 +174,48 @@ The recommended procedure for creating a new spec file is:
    try using `AutoReqProv: no` to turn this off.
 
    (See also <http://www.rpm.org/max-rpm/s1-rpm-depend-auto-depend.html>)
+
+ * __Problem: package doesn't include a specific installation step__:
+
+   This is often the case when the package build doesn't include a `make install`
+   step; in this case use the Linux `install` program and explicitly install files
+   to an appropriate location within the `%install` section, e.g.
+
+   `install -m 0755 <program> %{buildroot}%{_bindir}`
+
+   `install -m 0644 <file> %{buildroot}/%{_datadir}`
+
+   (Preface the installation destination with the `%{buildroot}` macro to avoid
+   `rpmbuild` trying to install into the actual filesystem.)
+
+### Patches ###
+
+Use
+
+    diff -u path/to/original_file path/to/new_file > file.patch
+
+to generate patch files.
+
+Patch files are specified in the spec file using the `Patch#` directive, e.g.
+
+    Patch0:   file1.patch
+    Patch1:   file2.patch
+    ...
+
+and are applied within the `%prep` section using `%patch#`, e.g.
+
+    %patch0 -p1
+
+### Useful macros ###
+
+See <http://fedoraproject.org/wiki/Packaging:RPMMacros>
+
+General:
+
+    bindir  = /usr/bin
+    datadir = /usr/share
+
+Perl:
+
+    perl_vendorarch: architecture-specific location for Perl modules
+    perl_vendorlib : general library location for Perl modules
