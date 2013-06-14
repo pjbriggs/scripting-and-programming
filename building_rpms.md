@@ -80,6 +80,12 @@ To list the contents of an RPM:
 
     $ rpm -qpl package.rpm
 
+To find out what package a file comes from:
+
+    $ rpm -qf /usr/bin/<program>
+
+(NB `yum whatprovides */<file>` does something similar.)
+
 Using mock to create RPMs for multiple platforms
 ------------------------------------------------
 
@@ -187,6 +193,16 @@ The recommended procedure for creating a new spec file is:
 
    (Preface the installation destination with the `%{buildroot}` macro to avoid
    `rpmbuild` trying to install into the actual filesystem.)
+
+ * __Problem: rpmbuild detects "standard RPATHs" and stops with an error__:
+
+    To allow standard RPATHS, add this line to the end of the `%install` section:
+    `export QA_RPATHS=0x0001`
+
+ * __Problem: package doesn’t have a version number__:
+
+   In these cases the suggested solution is to use an “epoch” number:
+   <http://www.rpm.org/max-rpm-snapshot/s1-rpm-depend-manual-dependencies.html>
 
 ### Patches ###
 
