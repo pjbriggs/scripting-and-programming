@@ -4,14 +4,14 @@ Making RPMS: notes
 Setting up
 ----------
 
- 1. It's recommended to create a dummy user specifically for making RPMs (however
-    I build them as myself); most essentially, __never build RPMs as `root`__
+ 1.  __Never build RPMs as `root`__: it's recommended to create a dummy user
+    specifically for making RPMs, however I normally build them as myself.
 
- 2. Install the necessary development tools on your system:
+ 2. __Install the necessary development tools__:
     * `yum install rpmdevtools`
-    * `yum groupinstall "Development Tools"
+    * `yum groupinstall "Development Tools"`
 
- 3. Set up the RPM directory structure: run the `rpmdev-setuptree` utility, which
+ 3. __Set up the RPM directory structure__: run the `rpmdev-setuptree` utility, which
     will create an `rpmbuild` directory containing `BUILD`, `RPMS`, `SOURCES`, `SPECS`
     and `SRPMS`.
 
@@ -22,8 +22,8 @@ Building an RPM typically requires:
 
  *  a __spec file__, which contains the instructions on how to unpackage, build and
     install a package, and also specifies which files to include in the final RPM
- *  the source code for the package, normally a `tar.gz` or `zip` archive.
- *  some RPMs also have associated patch files which are referenced in the spec file.
+ *  the __source code__ for the package, normally a `tar.gz` or `zip` archive.
+ *  some RPMs also have associated __patch files__ which are referenced in the spec file.
 
 The spec file should be put into the `SPECS` directory and the source archives and
 patches should be in `SOURCES`.
