@@ -83,3 +83,8 @@ try:
     except sqlite3.Error,ex:
         print "Error selecting data: %s" % ex
 ```
+
+SQLite Tools
+------------
+
+SQLite Manager in Firefox (add-on): https://addons.mozilla.org/en-US/firefox/addon/sqlite-manager/
