@@ -12,4 +12,6 @@ tasks.
 
 [SQLite crib sheet](https://github.com/pjbriggs/scripting-and-programming/blob/master/sqlite.md)
 
+[Graphviz & dot basics](https://github.com/pjbriggs/scripting-and-programming/blob/master/graphviz.md)
+
 [Excel hints](https://github.com/pjbriggs/scripting-and-programming/blob/master/excel_hints.md)
