@@ -14,3 +14,6 @@ Mercurial Crib Sheet
 `hg commit`
 
 `hg tip` Show the tip revision
+
+`hg update [ -r BRANCH ] -C` Revert to most recent version, `-C` discards local changes (`hg purge`
+removes untracked files)
