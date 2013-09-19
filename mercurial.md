@@ -51,4 +51,4 @@ use
 
     hg resolve -m [FILE]
     
-to tell Mercurial that the conflicts have been resolved (see (help:resolve)[http://www.selenic.com/hg/help/resolve])
+to tell Mercurial that the conflicts have been resolved (see [help:resolve]([http://www.selenic.com/hg/help/resolve))
