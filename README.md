@@ -15,3 +15,5 @@ tasks.
 [Graphviz & dot basics](https://github.com/pjbriggs/scripting-and-programming/blob/master/graphviz.md)
 
 [Excel hints](https://github.com/pjbriggs/scripting-and-programming/blob/master/excel_hints.md)
+
+[Git workflow notes](https://github.com/pjbriggs/scripting-and-programming/blob/master/git_workflow.rst)
