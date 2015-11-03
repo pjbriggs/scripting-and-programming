@@ -119,7 +119,7 @@ For example::
    https://pypi.python.org/pypi/bumpversion
 
 Fix the bug then merge into ``master`` and ``devel``. In ``master``
-you'll also need to tag the new 'release':
+you'll also need to tag the new 'release'::
 
    # Merge into master
    git checkout master
